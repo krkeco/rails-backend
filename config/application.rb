@@ -9,8 +9,13 @@ Bundler.require(*Rails.groups)
 module LaunchBackend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
-
+    # config.load_defaults 5.2
+  	config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => '*',
+    'Access-Control-Allow-Methods' => 'POST, PUT, PATCH, DELETE, GET, OPTIONS',
+    'Access-Control-Request-Method' => '*',
+    'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
